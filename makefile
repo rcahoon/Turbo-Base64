@@ -112,6 +112,9 @@ libtb64.so: $(LIB)
 	./python/tb64/build.py
 	cp _tb64.so ~/.local/lib/
 
+libtb64.a: $(LIB)
+	ar rcs $@ $^
+
 tb64app: $(LIB) tb64app.o 
 	$(CC) -O3 $(LIB) tb64app.o $(LDFLAGS) -o tb64app
 
